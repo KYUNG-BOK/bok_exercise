@@ -9,6 +9,11 @@ const input = data.split(/\s+/);
 let ptr = 0;
 const N = Number(input[ptr++]);
 
+function print(x){
+    process.stdout.write(String(x));
+}
+
+
 function gcd(a, b){
     while(b!==0n){
         const t=a%b;
