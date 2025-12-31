@@ -1,14 +1,13 @@
 const fs = require("fs");
-const data = fs.readFileSync(0,"utf8").trim();
-if(data.length===0) {
-    console.log("1");
-    process.exit(0);
+
+function readTokens(){
+    const data = fs.readFileSync(0,"utf8").trim();
+    if(data.length===0) return [];
+    return data.split(/\s+/);
 }
-
-const input = data.split(/\s+/);
-let ptr = 0;
-const N = Number(input[ptr++]);
-
+function print(x){
+    process.stdout.write(String(x));
+}
 function gcd(a, b){
     while(b!==0n){
         const t=a%b;
@@ -17,6 +16,13 @@ function gcd(a, b){
     }
     return a<0n ? -a:a;
 }
+const input = readTokens();
+let ptr = 0;
+if(input.length===0){
+    print("1");
+    process.exit(0);
+}
+const N = Number(input[ptr++]);
 
 let balance=0n;
 let m=0n;
